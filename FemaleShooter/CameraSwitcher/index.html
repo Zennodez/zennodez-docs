@@ -256,7 +256,7 @@
   
     <li class="md-nav__item">
       <a href="../03/" class="md-nav__link">
-        Adding Components
+        Adding Required Components
       </a>
     </li>
   
@@ -483,9 +483,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Camera Switcher
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Camera Switcher
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtonextcamera" class="md-nav__link">
+    SwitchToNextCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtoprevcamera" class="md-nav__link">
+    SwitchToPrevCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtocamera" class="md-nav__link">
+    SwitchToCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-transition-mode-enum" class="md-nav__link">
+    Camera Transition Mode (Enum)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -624,6 +689,56 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setup" class="md-nav__link">
+    Setup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtonextcamera" class="md-nav__link">
+    SwitchToNextCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtoprevcamera" class="md-nav__link">
+    SwitchToPrevCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchtocamera" class="md-nav__link">
+    SwitchToCamera
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-transition-mode-enum" class="md-nav__link">
+    Camera Transition Mode (Enum)
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -637,8 +752,102 @@
                 
                 <h1 id="camera-switcher-user-guide">Camera Switcher - User Guide</h1>
 <hr />
-<p>To be added.</p>
+<h2 id="overview">Overview</h2>
+<p>The CameraSwitcher component provides the ability to smoothly transition between multiple Camera components that is registered inside a pawn/character.<br />
+The component automatically detects all of the Camera registered inside the character, and collect them inside a list.</p>
+<p>The current version of CameraSwitcher will perform smooth transition for,</p>
+<ul>
+<li>Camera Transform (Location, Rotation, Scale)  </li>
+<li>Field of View  </li>
+</ul>
+<p>Details of the list of functions that the CameraSwitcher component provides can be seen below.</p>
 <hr />
+<h2 id="setup">Setup</h2>
+<p><img alt="Setup" src="../../images/CameraSwitcher/Setup.jpg" title="Setup" /></p>
+<p>Component initialization, should be called before the rest of the functions.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li>
+<p><strong>Default Camera</strong></p>
+<p>: <em>Camera Component</em></p>
+<p>This is the default camera that will be used by the CameraSwitcher owner in the beginning of the game. <br />
+If no value is set to the Default Camera, a random Camera Component will be chosen out of the ones registered with the owner.</p>
+</li>
+</ul>
+<hr />
+<h2 id="switchtonextcamera">SwitchToNextCamera</h2>
+<p><img alt="SwitchToNextCamera" src="../../images/CameraSwitcher/SwitchToNextCamera.jpg" title="SwitchToNextCamera" /></p>
+<p>Tell the CameraSwitcher to perform a transition to the next camera on the list.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li>
+<p><strong>Camera Transition Mode</strong></p>
+<p>: <em>Camera Transition Mode (Enum)</em></p>
+<p>See Enums section for details.</p>
+</li>
+<li>
+<p><strong>Custom Interp Speed</strong></p>
+<p>: <em>Float</em></p>
+<p>The interpolation speed used when the Camera Transition Mode is set to CustomSmoothing.</p>
+</li>
+</ul>
+<hr />
+<h2 id="switchtoprevcamera">SwitchToPrevCamera</h2>
+<p><img alt="SwitchToPrevCamera" src="../../images/CameraSwitcher/SwitchToPrevCamera.jpg" title="SwitchToPrevCamera" /></p>
+<p>Tell the CameraSwitcher to perform a transition to the previous camera on the list.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li>
+<p><strong>Camera Transition Mode</strong></p>
+<p>: <em>Camera Transition Mode (Enum)</em></p>
+<p>See Enums section for details.</p>
+</li>
+<li>
+<p><strong>Custom Interp Speed</strong></p>
+<p>: <em>Float</em></p>
+<p>The interpolation speed used when the Camera Transition Mode is set to CustomSmoothing.</p>
+</li>
+</ul>
+<hr />
+<h2 id="switchtocamera">SwitchToCamera</h2>
+<p><img alt="SwitchToCamera" src="../../images/CameraSwitcher/SwitchToCamera.jpg" title="SwitchToCamera" /></p>
+<p>Tell the CameraSwitcher to perform a transition to the camera specified in the Camera Component parameter.</p>
+<p><strong>Parameter</strong></p>
+<ul>
+<li>
+<p><strong>Camera Component</strong></p>
+<p>: <em>Camera Component</em></p>
+<p>The next Camera Component that the CameraSwitcher should transitioned into.</p>
+</li>
+<li>
+<p><strong>Camera Transition Mode</strong></p>
+<p>: <em>Camera Transition Mode (Enum)</em></p>
+<p>See Enums section for details.</p>
+</li>
+<li>
+<p><strong>Custom Interp Speed</strong></p>
+<p>: <em>Float</em></p>
+<p>The interpolation speed used when the Camera Transition Mode is set to CustomSmoothing.</p>
+</li>
+</ul>
+<hr />
+<h2 id="camera-transition-mode-enum">Camera Transition Mode (Enum)</h2>
+<p>The mechanism that should be used when performing the camera transition.</p>
+<p><strong>Values</strong></p>
+<ul>
+<li>
+<p>NoSmoothing  </p>
+<p>No transition is performed when changing from the old camera to the new camera.</p>
+</li>
+<li>
+<p>BasicSmoothing</p>
+<p>Perform camera transition using Unreal Engine's SetViewTargetWithBlend.  </p>
+</li>
+<li>
+<p>CustomSmoothing</p>
+<p>Perform camera transition using a custom interpolation method.</p>
+</li>
+</ul>
                 
               
               

@@ -282,6 +282,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#adding-the-sockets" class="md-nav__link">
+    Adding the sockets
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -296,7 +303,7 @@
   
     <li class="md-nav__item">
       <a href="../03/" class="md-nav__link">
-        Adding Components
+        Adding Required Components
       </a>
     </li>
   
@@ -667,6 +674,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#adding-the-sockets" class="md-nav__link">
+    Adding the sockets
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -683,35 +697,41 @@
                 <h1 id="female-shooter-user-guide">Female Shooter - User Guide</h1>
 <hr />
 <h2 id="preparing-the-sockets-and-skeleton">Preparing the sockets and skeleton</h2>
-<p><strong>GunnerGirl_Character</strong>, the default character that comes with Female Shooter template, is based on a scaled version of the UE4 mannequin.<br />
-It comes equipped with 4 additional sockets to hold 2 holsters on the hips and 2 guns in each hands.  </p>
+<p><strong>GunnerGirl_Character</strong>, the default character that comes with Female Shooter template, is based on a scaled version of the UE4 ThirdPersonCharacter mannequin.<br />
+The skeleton it used comes equipped with 4 additional sockets to hold 2 holsters on the hips and 2 guns in each hands.  </p>
 <p>To properly use the Female Shooter template on your custom character, you will need to add these 4 additional sockets to your character.</p>
 <p><img alt="GunnerGirlSockets" src="../../images/FemaleShooter/GunnerGirlSockets.jpg" title="GunnerGirlSockets" /></p>
-<p>By default the names of the sockets are set to,</p>
+<p>By default the names of the additional sockets are set to,</p>
 <ul>
 <li>Weapon_L <subnote>(attached to hand_l)</subnote></li>
 <li>Weapon_R <subnote>(attached to hand_r)</subnote></li>
 <li>Holster_L <subnote>(attached to thigh_l)</subnote></li>
 <li>Holster_R <subnote>(attached to thigh_l)</subnote></li>
 </ul>
-<p><blocknote>
-If you wish to use a custom name for these sockets, you can modify the settings inside the GunnerGirlComponent Details tab.<br />
-See <a href="../ModifySocketNames" title="Modifying Socket Names">Modifying Socket Names</a> for further instructions.<br />
-</blocknote></p>
-<p>If you want to, you can add each one of these sockets manually, instructions for the process can be found <a href="../../Guides/AddingSockets" title="AddingSockets">here</a>.</p>
-<p>However, to ease the process,<br />
-In this article we will setup the sockets by copying the existing configuration of the GunnerGirl_Skeleton, and then applying it to your character's skeleton.  </p>
-<p>The steps are written below,</p>
+<p>If required, the names of these sockets can be changed by modifying the settings inside the Details tab of the GunnerGirlComponent.<br />
+See <a href="../ModifySocketNames" title="Modifying Socket Names">Modifying Socket Names</a> for further instructions.  </p>
+<hr />
+<h2 id="adding-the-sockets">Adding the sockets</h2>
+<p>To add the sockets to your skeleton, you can either, </p>
 <ul>
+<li>create each sockets one by one,<br />
+    <subnote>(Instructions can be found</subnote> <a href="../../Guides/AddingSockets" title="AddingSockets">here</a><subnote>)</subnote></li>
+<li>or duplicate the sockets configuration used by the GunnerGirl_Skeleton and apply it to your character's skeleton.  </li>
+</ul>
+<p>To ease the process, we will go with the second option for this article.<br />
+The steps are written below,</p>
+<ul>
+<li>First, navigate to <strong>Content/FemaleShooter/Asset/GunnerGirl/GunnerGirl_Skeleton</strong>,  </li>
 <li>
-<p>First, navigate to Content/FemaleShooter/Asset/GunnerGirl/GunnerGirl_Skeleton, open the file</p>
+<p>Open the file,</p>
 <p><img alt="SkeletonLocation" src="../../images/FemaleShooter/SkeletonLocation.jpg" title="SkeletonLocation" /></p>
 </li>
 <li>
-<p>Select all of the previously mentioned additional sockets on the GunnerGirl_Skeleton.</p>
+<p>Select all 4 of the previously mentioned additional sockets on the GunnerGirl_Skeleton,</p>
 </li>
+<li>Right Click on the selected sockets,</li>
 <li>
-<p>Right Click, choose Copy Selected Sockets</p>
+<p>Choose Copy Selected Sockets,</p>
 <p><img alt="CopySockets" src="../../images/FemaleShooter/CopySockets.jpg" title="CopySockets" /></p>
 </li>
 <li>
@@ -723,8 +743,8 @@ In this article we will setup the sockets by copying the existing configuration 
 <p><img alt="PasteSockets" src="../../images/FemaleShooter/PasteSockets.jpg" title="PasteSockets" /></p>
 </li>
 </ul>
-<p>If everything goes properly, all the necessary sockets should now be added and ready to use on your skeleton.<br />
-Next, we will proceed with <a href="../03" title="03">adding the necessary components</a> from the Female Shooter template to your character.</p>
+<p>If everything goes properly, all the necessary sockets should now be added and ready to use on your skeleton.  </p>
+<p>Next, we'll proceed with <a href="../03" title="03">adding all the required components</a> from the Female Shooter template to your character.</p>
 <hr />
                 
               
@@ -769,7 +789,7 @@ Next, we will proceed with <a href="../03" title="03">adding the necessary compo
               <span class="md-footer__direction">
                 Next
               </span>
-              Adding Components
+              Adding Required Components
             </div>
           </div>
           <div class="md-footer__button md-icon">

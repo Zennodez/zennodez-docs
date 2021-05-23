@@ -256,7 +256,7 @@
   
     <li class="md-nav__item">
       <a href="../03/" class="md-nav__link">
-        Adding Components
+        Adding Required Components
       </a>
     </li>
   
@@ -744,20 +744,39 @@
 <p>Open the Event Graph tab, you will find a list of inputs/actions that the character can perform.<br />
 The inputs used in this Event Graph is the same one as the default control scheme used for the Female Shooter demo.  </p>
 <p><img alt="Default Inputs" src="../../images/FemaleShooter/DefaultInputs3.jpg" title="Default Inputs" /></p>
-<p>To speed things up, you can just copy all of the necessary inputs/actions that you want to use from the Event Graph and then paste it to your character.<br />
-That will give your character all of the functionalities that is available in the demo</p>
-<p>However, if you wish to have a more detailed explanation on the nodes, the descriptions are included in the sections below.  </p>
-<p>Once you've copied all the necessary actions, we will then proceed to <a href="../05" title="05">preparing the animation system for your character</a>.</p>
+<p>To speed things up, you can just copy all of the nodes from the Event Graph and then paste it to your character.<br />
+That will give your character all of the functionalities that is available in the demo.</p>
+<p>Once you've pasted the nodes on your character, try compiling the blueprint.<br />
+There's a possibility that you might get the following error.  </p>
+<p><img alt="RefreshNode01" src="../../images/FemaleShooter/RefreshNode01.jpg" title="RefreshNode01" /></p>
+<p>If that happens,</p>
+<ul>
+<li>Reselect all of the nodes that you've just pasted on the character,</li>
+<li>Right Click on one of them,</li>
+<li>choose Refresh Nodes.</li>
+</ul>
+<p><img alt="RefreshNode02" src="../../images/FemaleShooter/RefreshNode02.jpg" title="RefreshNode02" /></p>
+<p>Try recompiling the character blueprint again and see if the problem persists.  </p>
+<p>In the case that the error still appear after all that, try sending a message to one of our channels.<br />
+We'll try and take a look at what the problem might be.  </p>
 <p><blocknote>
 When using an existing character, make sure to do some extra check to ensure that the input events used by the character do not overlap with the ones provided by the template.
 </blocknote></p>
+<p>If there's no more problem after pasting the nodes, we will next proceed to <a href="../05" title="05">preparing the animation system for your character</a>.  </p>
+<p>Also, if you wish to have a more detailed explanation on what each nodes do, the descriptions are included in the sections below.  </p>
 <hr />
 <h2 id="demo-nodes">Demo Nodes</h2>
 <p>The nodes on the top-right area are used to provide functionalities for the demo.<br />
 These includes,</p>
 <ul>
-<li>Toggle Demo UI</li>
-<li>Quit Game</li>
+<li>
+<p><strong>Toggle Demo UI</strong><br />
+    Used to turn on/off the UI interface of the Female Shooter demo.</p>
+</li>
+<li>
+<p><strong>Quit Game</strong><br />
+    Quit the game by pressing <key>Esc</key> or <gamepad>Special Left</gamepad> button.</p>
+</li>
 </ul>
 <p>These nodes are not required for the Female Shooter template to function properly.<br />
 They can be excluded if necessary.</p>
@@ -915,7 +934,7 @@ Camera direction can be inverted using the IsInverted variable.  </p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              Adding Components
+              Adding Required Components
             </div>
           </div>
         </a>
