@@ -324,8 +324,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-6-using-custom-animations" class="md-nav__link">
-    Step 6 - Using Custom Animations
+  <a href="#using-custom-animations" class="md-nav__link">
+    Using Custom Animations
   </a>
   
 </li>
@@ -675,8 +675,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#step-6-using-custom-animations" class="md-nav__link">
-    Step 6 - Using Custom Animations
+  <a href="#using-custom-animations" class="md-nav__link">
+    Using Custom Animations
   </a>
   
 </li>
@@ -710,7 +710,7 @@
                 
                 <h1 id="female-shooter-user-guide">Female Shooter - User Guide</h1>
 <hr />
-<h2 id="step-6-using-custom-animations">Step 6 - Using Custom Animations</h2>
+<h2 id="using-custom-animations">Using Custom Animations</h2>
 <p>Starting from version 1.2.0, the Female Shooter template stores its animations as variables inside the GunnerGirlComponent.<br />
 This is done to make it easier for the user to replace each animations according to their requirements.</p>
 <p>The following guide will explain how to switch the default animations of the template and replace it with your custom animations.<br />
@@ -718,77 +718,84 @@ The steps are as follows,</p>
 <ul>
 <li>Open your character's blueprint</li>
 <li>Select the GunnerGirlComponent</li>
-<li>Go to Details tab, find the Animations category<br />
-    There you will find a list of variables, either Animation Sequence or Blendspace, whose value can be modified.</li>
-<li>Assign your custom animations on each of the variables that you wish to replace.</li>
-<li>Make sure to add all the necessary AnimNotify events to the animations that required them
-    <blocknote>
-    See below for a list of animations that require these AnimNotify events.
-    </blocknote></li>
+<li>
+<p>Go to Details tab, find the Animations category  </p>
+<p>There you will find a list of variables, either Animation Sequence or Blendspace, whose value can be modified.</p>
+<p><img alt="ModifyAnimationList" src="../../images/FemaleShooter/ModifyAnimationList.jpg" title="ModifyAnimationList" /></p>
+</li>
+<li>
+<p>Assign your custom animations on each of the variables that you wish to replace.</p>
+</li>
+<li>
+<p>Some of the animations will require <strong>AnimNotify</strong> events to be added in order to make them work with the Female Shooter template.<br />
+    See below for a list of animations that require these AnimNotify events.</p>
+</li>
 </ul>
+<hr />
 <h2 id="animationblendspace-list">Animation/Blendspace List</h2>
 <p>The following is the list of customizable animation/blendspace variables that can be assigned by the user.<br />
 Click on each animation/blendspace to see what AnimNotify is required for that animation.<br />
 <subnote>The ones that is unclickable does not require any AnimNotify events to be added.</subnote></p>
 <ul>
-<li>Blendspace Walk Run</li>
-<li>Blendspace Roll</li>
-<li>Blendspace Crouch</li>
-<li>Blendspace Jump Start</li>
-<li>Blendspace Jump Loop</li>
-<li>Anim Jump Landing</li>
-<li>Blendspace Somersault</li>
+<li>Blend Walk Run</li>
+<li><a href="../AnimNotify/Roll" title="Roll">Blend Roll</a></li>
+<li>Blend Crouch</li>
+<li><a href="../AnimNotify/JumpStart" title="JumpStart">Blend Jump Start</a></li>
+<li>Blend Jump Loop</li>
+<li><a href="../AnimNotify/JumpLand" title="JumpLand">Anim Jump Landing</a></li>
+<li><a href="../AnimNotify/Somersault" title="Somersault">Blend Somersault</a></li>
 <li>Anim Gun Idle</li>
 <li><a href="../AnimNotify/GunEquipWithSpin" title="GunEquipWithSpin">Anim Gun Equip With Spin</a></li>
-<li>Anim Gun Unequip With Spin</li>
+<li><a href="../AnimNotify/GunUnequipWithSpin" title="GunUnequipWithSpin">Anim Gun Unequip With Spin</a></li>
 <li><a href="../AnimNotify/GunEquipNormal" title="GunEquipNormal">Anim Gun Equip Normal</a></li>
-<li>Anim Gun Unequip Normal</li>
-<li>Anim Gun Shoot Left Arm</li>
-<li>Anim Gun Shoot Right Arm</li>
-<li>Blendspace Gun Aim Left Arm</li>
-<li>Blendspace Gun Aim Right Arm</li>
+<li><a href="../AnimNotify/GunUnequipNormal" title="GunUnequipNormal">Anim Gun Unequip Normal</a></li>
+<li><a href="../AnimNotify/GunShootLeftArm" title="GunShootLeftArm">Anim Gun Shoot Left Arm</a></li>
+<li><a href="../AnimNotify/GunShootRightArm" title="GunShootRightArm">Anim Gun Shoot Right Arm</a></li>
+<li>Blend Gun Aim Left Arm</li>
+<li>Blend Gun Aim Right Arm</li>
 </ul>
+<hr />
 <h2 id="animnotify-events">AnimNotify Events</h2>
-<p>The following is the list and descriptions of the AnimNotify events that will need to be added to some of the custom animations,</p>
+<p>The following is the list and descriptions of the AnimNotify events that needs to be added to the custom animations,</p>
 <ul>
 <li>
-<p>MovementDisabled<br />
+<p><strong>MovementDisabled</strong><br />
     Disable character movement.  </p>
 </li>
 <li>
-<p>MovementEnabled<br />
+<p><strong>MovementEnabled</strong><br />
     Enable character movement.  </p>
 </li>
 <li>
-<p>GunInHand<br />
+<p><strong>GunInHand</strong><br />
     Attach both guns to the character's hand.<br />
-    By default this is set to the Weapon_L and Weapon_R socket on the skeleton.<br />
-    Socket name can be modified by changing it in the GunnerGirlComponent details.  </p>
+    By default this is set to the <strong>Weapon_L</strong> and <strong>Weapon_R</strong> socket on the skeleton.<br />
+    Socket name can be modified by changing it in the Details tab of the <strong>GunnerGirlComponent</strong>.</p>
 </li>
 <li>
-<p>GunInHolster<br />
+<p><strong>GunInHolster</strong><br />
     Attach both guns to the character's holster<br />
-    By default this is set to Holster_L and Holster_R socket on the skeleton.<br />
-    Socket name can be modified by changing it in the GunnerGirlComponent details.  </p>
+    By default this is set to <strong>Holster_L</strong> and <strong>Holster_R</strong> socket on the skeleton.<br />
+    Socket name can be modified by changing it in the Details tab of the <strong>GunnerGirlComponent</strong>.</p>
 </li>
 <li>
-<p>GunShootAvailable<br />
-    Tell the system that it can perform a shot whenever it's ready.<br />
-    For this version, the shooting mechanism is animation controlled.<br />
-    User can call GunnerGirlComponent.Shoot to tell the system to start the dual shooting animation.<br />
-    The actual timing of when the shot is released is triggered by placing the following AnimNotify inside the character shooting animations:  </p>
+<p><strong>GunShootAvailable</strong><br />
+    Tell the system that it can perform a shot whenever it's ready.  </p>
+<p>For this version, the shooting mechanism is animation controlled.<br />
+User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to start the dual shooting animation.  </p>
+<p>The actual timing of when the shot is released is triggered by placing the following AnimNotify inside the character shooting animations:  </p>
 <ul>
-<li>LeftGunShot AnimNotify  </li>
-<li>RightGunShot AnimNotify  </li>
+<li><strong>LeftGunShot AnimNotify</strong>  </li>
+<li><strong>RightGunShot AnimNotify</strong>  </li>
 </ul>
 </li>
 <li>
-<p>GunShootUnavailable<br />
+<p><strong>GunShootUnavailable</strong><br />
     Tell the system to ignore any request to shoot the guns.<br />
-    To re-enable the shooting functionality, use the GunShootAvailable AnimNotify  </p>
+    To re-enable the shooting functionality, use the <strong>GunShootAvailable</strong> AnimNotify  </p>
 </li>
 <li>
-<p>GunEquipped<br />
+<p><strong>GunEquipped</strong><br />
     Tell the system to activate GunMode, this will enable the following settings:  </p>
 <ul>
 <li>Switch the default animation from Idle to GunIdle.  </li>
@@ -798,7 +805,7 @@ Click on each animation/blendspace to see what AnimNotify is required for that a
 </ul>
 </li>
 <li>
-<p>GunUnequipped<br />
+<p><strong>GunUnequipped</strong><br />
     Tell the system to deactivate GunMode, this will:  </p>
 <ul>
 <li>Set the default animation to Idle instead of Gunidle  </li>
@@ -808,17 +815,17 @@ Click on each animation/blendspace to see what AnimNotify is required for that a
 </ul>
 </li>
 <li>
-<p>GunSpinStart<br />
+<p><strong>GunSpinStart</strong><br />
     Tell the Guns to start spinning, the spinning movement will continue until GunSpinStop is called.<br />
     The gun spinning animation is performed independently from the character's animation.<br />
     (the gun can spin on its own without the character doing any animations)  </p>
 </li>
 <li>
-<p>GunSpinStop<br />
+<p><strong>GunSpinStop</strong><br />
     Tell the Guns to stop spinning, will only be performed if GunSpinStart was called previously.  </p>
 </li>
 <li>
-<p>LeftGunShot<br />
+<p><strong>LeftGunShot</strong><br />
     Tell the system that the left gun just released a shot, this will:  </p>
 <ul>
 <li>Automatically create a muzzle flash.  </li>
@@ -826,7 +833,7 @@ Click on each animation/blendspace to see what AnimNotify is required for that a
 </ul>
 </li>
 <li>
-<p>RightGunShot<br />
+<p><strong>RightGunShot</strong><br />
     Tell the system that the right gun just released a shot, this will:  </p>
 <ul>
 <li>Automatically create a muzzle flash.  </li>
@@ -834,47 +841,47 @@ Click on each animation/blendspace to see what AnimNotify is required for that a
 </ul>
 </li>
 <li>
-<p>IsLandingStart<br />
+<p><strong>IsLandingStart</strong><br />
     Tell the system that the character have reached the ground and is currently processing their landing.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
-<p>IsLandingDone<br />
+<p><strong>IsLandingDone</strong><br />
     Tell the system that the character have finished their landing and will switch to Idle animation now.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
-<p>JumpStartBegin<br />
+<p><strong>JumpStartBegin</strong><br />
     Tell the system that the character is starting a jump.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
-<p>JumpStartComplete<br />
+<p><strong>JumpStartComplete</strong><br />
     Tell the system that the character have finished their preliminary jump animation and will move to JumpLoop animation now.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
-<p>RollBegin<br />
+<p><strong>RollBegin</strong><br />
     Tell the system that the character is starting a roll.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
-<p>RollComplete<br />
+<p><strong>RollComplete</strong><br />
     Tell the system that the character have finished their roll.<br />
     Is used by the system to cleanup some animation settings.  </p>
 </li>
 <li>
-<p>SomersaultComplete<br />
+<p><strong>SomersaultComplete</strong><br />
     Tell the system that the character have finished their somersault.<br />
     Is used by the system to cleanup some animation settings.  </p>
 </li>
 <li>
-<p>FlyModeEnabled<br />
+<p><strong>FlyModeEnabled</strong><br />
     Used to disable normal physics during airborne root motion animation.<br />
     Safe to use for single player, but might not work properly for replication.  </p>
 </li>
 <li>
-<p>FlyModeDisabled<br />
+<p><strong>FlyModeDisabled</strong><br />
     Used to re-enable normal physics at the end of an airborne root motion animation.<br />
     Safe to use for single player, but might not work properly for replication.  </p>
 </li>
