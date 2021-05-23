@@ -333,6 +333,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#regarding-the-retargeted-animation-blueprint" class="md-nav__link">
+    Regarding the Retargeted Animation Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connecting-the-animation-blueprint-to-your-character" class="md-nav__link">
     Connecting the Animation Blueprint to your Character
   </a>
@@ -703,6 +710,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#regarding-the-retargeted-animation-blueprint" class="md-nav__link">
+    Regarding the Retargeted Animation Blueprint
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connecting-the-animation-blueprint-to-your-character" class="md-nav__link">
     Connecting the Animation Blueprint to your Character
   </a>
@@ -746,17 +760,17 @@ The GunnerGirl_Skeleton is based on the rescaled version of UE4 Mannequin skelet
 <ul>
 <li>A dialog window will appear, telling you to choose a skeleton.</li>
 <li>Choose the GunnerGirl_Skeleton, then press Accept.</li>
-<li>This will disassociate your mesh from its original skeleton, and set the GunnerGirl_Skeleton as your new skeleton.  </li>
 </ul>
 <p><img alt="AssignSkeleton2" src="../../images/FemaleShooter/AssignSkeleton2.jpg" title="AssignSkeleton2" /></p>
-<p>If you're using this reassignment method, the animation blueprint that you'll be using is located at <strong>Content/FemaleShooter/Asset/GunnerGirl/Anim/GunnerGirl_AnimBP</strong>.  </p>
+<p>This will disassociate your mesh from its original skeleton, and set the GunnerGirl_Skeleton as your new skeleton.  </p>
+<p>If reassignment is the method you choose, the animation blueprint that you'll be using for the next step is located at <strong>Content/FemaleShooter/Asset/GunnerGirl/Anim/GunnerGirl_AnimBP</strong>.  </p>
 <p><img alt="GunnerGirlAnimBP" src="../../images/FemaleShooter/GunnerGirlAnimBP.jpg" title="GunnerGirlAnimBP" /></p>
 <p>Once you're ready, you can continue with the process and see the next steps <a href="#connecting-the-animation-blueprint-to-your-character" title="here">here</a>.  </p>
 <hr />
 <h2 id="retarget-the-animation-blueprint">Retarget the Animation Blueprint</h2>
 <p>Based on our experience, retargeting the animation blueprint to your existing skeleton seems to be the more reliable method to setup your animation system.<br />
 It does take a little bit more time to perform, but this approach can be done on most skeletal mesh, even if the skeleton skeleton structure is not based on the UE4 Mannequin.  </p>
-<p>The steps are written below,  </p>
+<p>Instructions on how to retarget the Female Shooter animation blueprint to your character are as written below, </p>
 <ul>
 <li>
 <p>First, you will need prepare your skeleton for the retargeting process.<br />
@@ -774,7 +788,9 @@ It does take a little bit more time to perform, but this approach can be done on
 Further explanation on this subject will be explained further below.</p>
 </li>
 <li>
-<p>Right click on both files, choose Retarget Anim Blueprints, then choose Duplicate Anim Blueprints and Retarget</p>
+<p>Right click on both files,<br />
+    choose Retarget Anim Blueprints,<br />
+    then choose Duplicate Anim Blueprints and Retarget  </p>
 <p><img alt="Retarget02" src="../../images/FemaleShooter/Retarget02.jpg" title="Retarget02" /></p>
 </li>
 <li>
@@ -794,16 +810,25 @@ Try unchecking the <strong>Show Only Compatible Skeletons</strong> option if you
 <p>Press the <strong>Retarget</strong> button</p>
 </li>
 </ul>
-<p>Previously, we choose both <strong>GunnerGirl_AnimBP</strong> and <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong> to be retargeted.  </p>
-<p>This is done because starting from version 1.2.0, the Female Shooter template store each animations as a variable inside the Animation Blueprint.<br />
-Due to this, when retargeting is performed only on <strong>GunnerGirl_AnimBP</strong>, only the Animation Blueprint will be retargeted, the default animations will not be included in the result.</p>
-<p>In the example above, both files are chosen to make sure that the default animations are also included when the retargeting is performed.<br />
-Do note however, if you're planning to use your own custom animations with the Female Shooter template, retargeting only the <strong>GunnerGirl_AnimBP</strong> will be enough.  </p>
-<p>Once you're done with the retargeting, we will proceed to the <a href="#connecting-the-animation-blueprint-to-your-character" title="here">next steps</a>.  </p>
+<p>Once the retargeting is done, several new files will be generated into your project.<br />
+If retargeting is the approach you choose, the animation blueprint that you'll be using for the next step will be the one that the system generated for you based on the <strong>GunnerGirl_AnimBP</strong> animation blueprint.</p>
+<p>Once you're done with the retargeting process, you can proceed to the next steps by going <a href="#connecting-the-animation-blueprint-to-your-character" title="here">here</a>.  </p>
+<p><blocknote>
+If you wish to understand why 2 AnimBPs is being used in our retargeting example above, the explanation is given in the next section below.
+</blocknote></p>
+<hr />
+<h2 id="regarding-the-retargeted-animation-blueprint">Regarding the Retargeted Animation Blueprint</h2>
+<p>In the previous section, the retargeting process is performed on both <strong>GunnerGirl_AnimBP</strong> and <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong>.<br />
+In practice, the only animation blueprint required by the Female Shooter system is <strong>GunnerGirl_AnimBP</strong>.  </p>
+<p>The reason why both animation blueprints are retargeted in the example above, is because starting from version 1.2.0, the Female Shooter system stores each animations as a variable inside the Animation Blueprint.<br />
+Due to this, when retargeting is performed only on <strong>GunnerGirl_AnimBP</strong>, only the Animation Blueprint itself will be retargeted, the default animations will not be included in the result.</p>
+<p>As a workaround to this condition, <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong> is provided as a redundant copy of <strong>GunnerGirl_AnimBP</strong> that can be used as a short handle to retarget all of the necessary default animations without having to explicitly selecting them one by one.</p>
+<p>Thus, to ensure that the animation blueprint and default animations are retargeted, both <strong>GunnerGirl_AnimBP</strong> and <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong> will need to be included in the process.  </p>
+<p>Do note however, if you're planning to use your own custom animations with the Female Shooter template, retargeting only the <strong>GunnerGirl_AnimBP</strong> will be enough for your purpose.  </p>
 <hr />
 <h2 id="connecting-the-animation-blueprint-to-your-character">Connecting the Animation Blueprint to your Character</h2>
 <p>Once the Animation Blueprint is ready, we can now apply it into the character.<br />
-Steps are as follows,</p>
+Instructions as follows,</p>
 <ul>
 <li>Open your character's blueprint</li>
 <li>Go to Components tab, select the Mesh component</li>
@@ -818,8 +843,8 @@ Steps are as follows,</p>
 <li>Set the value of Animation Mode to Use Animation Blueprint.</li>
 <li>Set the value of Anim Class into the Animation Blueprint that you've prepared previously.</li>
 </ul>
-<p>This should complete the default Female Shooter template setup for your character.</p>
-<p>If you're planning to use custom animations for your character, make sure to take a look at the next article about <a href="../06" title="06">Using Custom Animations on the template</a>.</p>
+<p>This should complete the basic setup for applying the Female Shooter character template to your character.</p>
+<p>If you're planning to use custom animations for your character, make sure to take a look at the next article about <a href="../06" title="06">Using Custom Animations</a>.</p>
 <hr />
                 
               
