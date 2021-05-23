@@ -231,7 +231,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step1/" class="md-nav__link">
+      <a href="../01/" class="md-nav__link">
         Template Overview
       </a>
     </li>
@@ -243,7 +243,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step2/" class="md-nav__link">
+      <a href="../02/" class="md-nav__link">
         Preparing Sockets and Skeleton
       </a>
     </li>
@@ -255,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step3/" class="md-nav__link">
+      <a href="../03/" class="md-nav__link">
         Adding Components
       </a>
     </li>
@@ -267,7 +267,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step4/" class="md-nav__link">
+      <a href="../04/" class="md-nav__link">
         Adding Template Functionalities
       </a>
     </li>
@@ -279,7 +279,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step5/" class="md-nav__link">
+      <a href="../05/" class="md-nav__link">
         Setting up the Animation System
       </a>
     </li>
@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../step6/" class="md-nav__link">
+      <a href="../06/" class="md-nav__link">
         Using Custom Animations
       </a>
     </li>
@@ -509,6 +509,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CameraSwitcher/" class="md-nav__link">
+        Camera Switcher
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -605,6 +617,18 @@
   
 
           
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Guides/RetargetingPreparation/" class="md-nav__link">
+        Retargeting Preparation
+      </a>
+    </li>
+  
+
+          
         </ul>
       </nav>
     </li>
@@ -659,7 +683,23 @@
                 <h1 id="female-shooter-user-guide">Female Shooter - User Guide</h1>
 <hr />
 <h2 id="modifying-socket-names">Modifying socket names</h2>
-<p>Documentation in progress, to be added.</p>
+<p>By default, GunnerGirl_Skeleton <subnote>(the template's default skeleton)</subnote> come equipped with the following sockets,</p>
+<ul>
+<li>Weapon_L <subnote>(attached to hand_l)</subnote></li>
+<li>Weapon_R <subnote>(attached to hand_r)</subnote></li>
+<li>Holster_L <subnote>(attached to thigh_l)</subnote></li>
+<li>Holster_R <subnote>(attached to thigh_l)</subnote></li>
+</ul>
+<p>These sockets are required to ensure that the template can work properly.  </p>
+<p>If for some reason you need to change the name of these sockets or wish to use an existing socket that you already made,<br />
+You will need to let the template know by updating the following values,</p>
+<ul>
+<li>Open your character blueprint</li>
+<li>Select GunnerGirlComponent from the Components tab <subnote>(assuming you already add the GunnerGirlComponent to your character)</subnote></li>
+<li>Navigate to the Details tab, look under Sockets</li>
+</ul>
+<p><img alt="ModifySockets" src="../../images/FemaleShooter/ModifyEquipments2.jpg" title="ModifySockets" /></p>
+<p>Please adjust the socket name values to ensure that the template can recognize the sockets that you're using.</p>
 <hr />
                 
               
@@ -698,13 +738,13 @@
         </a>
       
       
-        <a href="../../GrappleGearProto/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../CameraSwitcher/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Index
+              Camera Switcher
             </div>
           </div>
           <div class="md-footer__button md-icon">
