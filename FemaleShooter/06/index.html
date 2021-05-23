@@ -756,31 +756,31 @@ Click on each animation/blendspace to see what AnimNotify is required for that a
 </ul>
 <hr />
 <h2 id="animnotify-events">AnimNotify Events</h2>
-<p>The following is the list and descriptions of the AnimNotify events that needs to be added to the custom animations,</p>
+<p>The following is the list and descriptions of all the AnimNotify events that might be needed by the custom animations.</p>
 <ul>
 <li>
 <p><strong>MovementDisabled</strong><br />
-    Disable character movement.  </p>
+    Used to disable character movement.  </p>
 </li>
 <li>
 <p><strong>MovementEnabled</strong><br />
-    Enable character movement.  </p>
+    Used to enable character movement.  </p>
 </li>
 <li>
 <p><strong>GunInHand</strong><br />
-    Attach both guns to the character's hand.<br />
+    Used to attach both guns to the character's hand.<br />
     By default this is set to the <strong>Weapon_L</strong> and <strong>Weapon_R</strong> socket on the skeleton.<br />
-    Socket name can be modified by changing it in the Details tab of the <strong>GunnerGirlComponent</strong>.</p>
+    Socket name can be modified by <a href="../ModifySocketNames" title="ModifySocketNames">changing it in the Details tab of the <strong>GunnerGirlComponent</strong></a>.</p>
 </li>
 <li>
 <p><strong>GunInHolster</strong><br />
-    Attach both guns to the character's holster<br />
+    Used to attach both guns to the character's holster<br />
     By default this is set to <strong>Holster_L</strong> and <strong>Holster_R</strong> socket on the skeleton.<br />
-    Socket name can be modified by changing it in the Details tab of the <strong>GunnerGirlComponent</strong>.</p>
+    Socket name can be modified by <a href="../ModifySocketNames" title="ModifySocketNames">changing it in the Details tab of the <strong>GunnerGirlComponent</strong></a>.</p>
 </li>
 <li>
 <p><strong>GunShootAvailable</strong><br />
-    Tell the system that it can perform a shot whenever it's ready.  </p>
+    Used to tell the system that it can perform a shot whenever it's ready.  </p>
 <p>For this version, the shooting mechanism is animation controlled.<br />
 User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to start the dual shooting animation.  </p>
 <p>The actual timing of when the shot is released is triggered by placing the following AnimNotify inside the character shooting animations:  </p>
@@ -791,12 +791,12 @@ User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to s
 </li>
 <li>
 <p><strong>GunShootUnavailable</strong><br />
-    Tell the system to ignore any request to shoot the guns.<br />
+    Used to tell the system to ignore any request to shoot the guns.<br />
     To re-enable the shooting functionality, use the <strong>GunShootAvailable</strong> AnimNotify  </p>
 </li>
 <li>
 <p><strong>GunEquipped</strong><br />
-    Tell the system to activate GunMode, this will enable the following settings:  </p>
+    Used to tell the system to activate GunMode, this will enable the following settings:  </p>
 <ul>
 <li>Switch the default animation from Idle to GunIdle.  </li>
 <li>Enable Strafe Mode (character will always face towards the camera's forward direction).  </li>
@@ -806,7 +806,7 @@ User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to s
 </li>
 <li>
 <p><strong>GunUnequipped</strong><br />
-    Tell the system to deactivate GunMode, this will:  </p>
+    Used to tell the system to deactivate GunMode, this will:  </p>
 <ul>
 <li>Set the default animation to Idle instead of Gunidle  </li>
 <li>Disable Strafe Mode (character will face whichever direction they are currently moving to)  </li>
@@ -816,17 +816,17 @@ User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to s
 </li>
 <li>
 <p><strong>GunSpinStart</strong><br />
-    Tell the Guns to start spinning, the spinning movement will continue until GunSpinStop is called.<br />
+    Used to tell the Guns to start spinning, the spinning movement will continue until GunSpinStop is called.<br />
     The gun spinning animation is performed independently from the character's animation.<br />
     (the gun can spin on its own without the character doing any animations)  </p>
 </li>
 <li>
 <p><strong>GunSpinStop</strong><br />
-    Tell the Guns to stop spinning, will only be performed if GunSpinStart was called previously.  </p>
+    Used to tell the Guns to stop spinning, will only be performed if GunSpinStart was called previously.  </p>
 </li>
 <li>
 <p><strong>LeftGunShot</strong><br />
-    Tell the system that the left gun just released a shot, this will:  </p>
+    Used to tell the system that the left gun just released a shot, this will:  </p>
 <ul>
 <li>Automatically create a muzzle flash.  </li>
 <li>Dispatch the GunnerGirlComponent.OnLeftGunShot event  </li>
@@ -834,7 +834,7 @@ User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to s
 </li>
 <li>
 <p><strong>RightGunShot</strong><br />
-    Tell the system that the right gun just released a shot, this will:  </p>
+    Used to tell the system that the right gun just released a shot, this will:  </p>
 <ul>
 <li>Automatically create a muzzle flash.  </li>
 <li>Dispatch the GunnerGirlComponent.OnRightGunShot event  </li>
@@ -842,37 +842,37 @@ User can call <strong>GunnerGirlComponent.Shoot</strong> to tell the system to s
 </li>
 <li>
 <p><strong>IsLandingStart</strong><br />
-    Tell the system that the character have reached the ground and is currently processing their landing.<br />
+    Used to tell the system that the character have reached the ground and is currently processing their landing.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
 <p><strong>IsLandingDone</strong><br />
-    Tell the system that the character have finished their landing and will switch to Idle animation now.<br />
+    Used to tell the system that the character have finished their landing and will switch to Idle animation now.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
 <p><strong>JumpStartBegin</strong><br />
-    Tell the system that the character is starting a jump.<br />
+    Used to tell the system that the character is starting a jump.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
 <p><strong>JumpStartComplete</strong><br />
-    Tell the system that the character have finished their preliminary jump animation and will move to JumpLoop animation now.<br />
+    Used to tell the system that the character have finished their preliminary jump animation and will move to JumpLoop animation now.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
 <p><strong>RollBegin</strong><br />
-    Tell the system that the character is starting a roll.<br />
+    Used to tell the system that the character is starting a roll.<br />
     Not actively used by the system.  </p>
 </li>
 <li>
 <p><strong>RollComplete</strong><br />
-    Tell the system that the character have finished their roll.<br />
+    Used to tell the system that the character have finished their roll.<br />
     Is used by the system to cleanup some animation settings.  </p>
 </li>
 <li>
 <p><strong>SomersaultComplete</strong><br />
-    Tell the system that the character have finished their somersault.<br />
+    Used to tell the system that the character have finished their somersault.<br />
     Is used by the system to cleanup some animation settings.  </p>
 </li>
 <li>
