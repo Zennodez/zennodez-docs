@@ -746,14 +746,14 @@ The inputs used in this Event Graph is the same one as the default control schem
 <p><img alt="Default Inputs" src="../../images/FemaleShooter/DefaultInputs3.jpg" title="Default Inputs" /></p>
 <p>To speed things up, you can just copy all of the necessary inputs/actions that you want to use from the Event Graph and then paste it to your character.<br />
 That will give your character all of the functionalities that is available in the demo</p>
-<p>However, if you wish to have a more detailed explanation on the nodes, the descriptions are included in the sections below.<br />
-Once you've copied all the necessary actions, we will then proceed to <a href="../05" title="05">preparing the animation system for your character</a>.</p>
+<p>However, if you wish to have a more detailed explanation on the nodes, the descriptions are included in the sections below.  </p>
+<p>Once you've copied all the necessary actions, we will then proceed to <a href="../05" title="05">preparing the animation system for your character</a>.</p>
 <p><blocknote>
 When using an existing character, make sure to do some extra check to ensure that the input events used by the character do not overlap with the ones provided by the template.
 </blocknote></p>
 <hr />
 <h2 id="demo-nodes">Demo Nodes</h2>
-<p>Most of the nodes on the top area are actually added to provide functionalities for the demo.<br />
+<p>The nodes on the top-right area are used to provide functionalities for the demo.<br />
 These includes,</p>
 <ul>
 <li>Toggle Demo UI</li>
@@ -772,14 +772,14 @@ The Camera Switcher nodes are also not required, but might be useful if you need
 <h2 id="setup-nodes">Setup Nodes</h2>
 <p>The content of the setup nodes can also be omitted depending on your requirements.</p>
 <p>If you do not wish to use them, you can either exclude them when you copy the template nodes,<br />
-Or you can simply deactivate them by unchecking their setup functions in the 'Begin Play and Tick' section.  </p>
+Or you simply deactivate them by unchecking their setup functions in the 'Begin Play and Tick' section.  </p>
 <p>See the picture below for details.</p>
 <p><img alt="Deactivate Demo Functionalities" src="../../images/FemaleShooter/DeactivateDemoFunctionalities.jpg" title="Deactivate Demo Functionalities" /></p>
 <hr />
 <h2 id="female-shooter-nodes">Female Shooter Nodes</h2>
 <p>The nodes on the bottom area are the ones that are mainly required for the template.  </p>
 <p><img alt="FemaleShooterNodes" src="../../images/FemaleShooter/DefaultInputs_Shooter.jpg" title="FemaleShooterNodes" /></p>
-<p>List of inputs/actions available,</p>
+<p>The list of inputs/actions available within these nodes includes,</p>
 <ul>
 <li>
 <p><strong>Character Movement</strong> (Gamepad)<br />
@@ -810,8 +810,7 @@ Usage of this component is optional and is not required if you already register 
 </li>
 <li>
 <p><strong>Roll</strong><br />
-    Used to perform rolling.<br />
-    Can only be done on the ground.<br />
+    Used to perform rolling, can only be done when you're footed on the ground.<br />
     Default inputs are set to <key>E</key> and <gamepad>Facebutton Right</gamepad>.</p>
 </li>
 <li>

@@ -319,8 +319,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assign-a-skeleton" class="md-nav__link">
-    Assign a Skeleton
+  <a href="#reassigning-the-skeleton" class="md-nav__link">
+    Reassigning the Skeleton
   </a>
   
 </li>
@@ -689,8 +689,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#assign-a-skeleton" class="md-nav__link">
-    Assign a Skeleton
+  <a href="#reassigning-the-skeleton" class="md-nav__link">
+    Reassigning the Skeleton
   </a>
   
 </li>
@@ -729,51 +729,92 @@
 This step is required whether you plan to use the custom animations that you've already made or reuse the included default animations that the template provides.</p>
 <p>There are 2 ways to do this,</p>
 <ul>
-<li>You can Assign a Skeleton for your skeletal mesh,</li>
-<li>Or you can Retarget the Animation Blueprint to your skeletal mesh <subnote>(recommended)</subnote></li>
+<li>You can <a href="#reassigning-the-skeleton" title="Reassigning the skeleton">reassign the skeleton for your skeletal mesh</a>, <subnote>(might not work on every mesh)</subnote></li>
+<li>Or you can <a href="#retarget-the-animation-blueprint" title="Retarget the animation blueprint">retarget the Animation Blueprint</a> to your skeletal mesh <subnote>(recommended)</subnote></li>
 </ul>
-<h2 id="assign-a-skeleton">Assign a Skeleton</h2>
+<hr />
+<h2 id="reassigning-the-skeleton">Reassigning the Skeleton</h2>
+<p>Reassigning skeleton is the faster way of the two, but it will not work on every skeletal mesh.<br />
+The GunnerGirl_Skeleton is based on the rescaled version of UE4 Mannequin skeleton, so any skeletal mesh whose skeleton is based on the UE4 mannequin will most likely work with minimal issue when using this method.  </p>
+<p>However, it's not really recommended to use this approach since it might not work with skeletal mesh whose joint orientation is set differently from the UE4 Mannequin.  </p>
+<p>With that said, the steps are as follows,</p>
 <ul>
 <li>Right click on the skeletal mesh you wish to use for your character,</li>
 <li>Choose Skeleton, then choose Assign Skeleton</li>
-<li>Choose the GunnerGirl_Skeleton</li>
 </ul>
-<p>The GunnerGirl_Skeleton is based on the rescaled version of UE4 Mannequin skeleton, so any skeletal mesh based on the UE4 mannequin will most likely work with minimal issue.<br />
-However, it's not really recommended to use this approach since it might not work with skeletal mesh whose joint orientation might be set differently from the UE4 Mannequin.  </p>
-<h2 id="retarget-the-animation-blueprint">Retarget the Animation Blueprint</h2>
+<p><img alt="AssignSkeleton" src="../../images/FemaleShooter/AssignSkeleton.jpg" title="AssignSkeleton" /></p>
 <ul>
-<li>Prepare your skeleton for retargeting
-    <blocknote>
-    See the <a href="../../Guides/RetargetingPreparation" title="RetargetPreparation">retargeting preparation guide</a> for detailed instructions.
-    </blocknote></li>
-<li>Navigate to <strong>Content/FemaleShooter/Asset/GunnerGirl/Anim/GunnerGirlAnimation/GunnerGirl_AnimBP</strong></li>
-<li>Right click on the file, choose Retarget Anim Blueprints, then choose Duplicate Anim Blueprints and Retarget</li>
-<li>Choose the skeleton asset of your skeletal mesh
-    <blocknote>
-    Try unchecking the <strong>Show Only Compatible Skeletons</strong> option if your skeleton asset is not listed on the option.
-    </blocknote></li>
-<li>Add a prefix and assign the folder for the New Asset Name
+<li>A dialog window will appear, telling you to choose a skeleton.</li>
+<li>Choose the GunnerGirl_Skeleton, then press Accept.</li>
+<li>This will disassociate your mesh from its original skeleton, and set the GunnerGirl_Skeleton as your new skeleton.  </li>
+</ul>
+<p><img alt="AssignSkeleton2" src="../../images/FemaleShooter/AssignSkeleton2.jpg" title="AssignSkeleton2" /></p>
+<p>The animation blueprint should be ready for usage now, you can proceed and continue to the next steps <a href="#connecting-the-animation-blueprint-to-your-character" title="here">here</a>.  </p>
+<hr />
+<h2 id="retarget-the-animation-blueprint">Retarget the Animation Blueprint</h2>
+<p>Based on our experience, retargeting the animation blueprint to your existing skeleton seems to be the more reliable method to setup your animation system.<br />
+It does take a little bit more time to perform, but this approach can be done on most skeletal mesh, even if the skeleton skeleton structure is not based on the UE4 Mannequin.  </p>
+<p>The steps are written below,  </p>
+<ul>
+<li>
+<p>First, you will need prepare your skeleton for the retargeting process.<br />
+    Detailed instruction on how to do this can be found in the <a href="../../Guides/RetargetingPreparation" title="RetargetPreparation">retargeting preparation guide</a>.</p>
+</li>
+<li>
+<p>Next, navigate to <strong>Content/FemaleShooter/Asset/GunnerGirl/Anim/GunnerGirlAnimation</strong><br />
+    There will be 2 Animation Blueprints on that folder  </p>
+<ul>
+<li><strong>GunnerGirl_AnimBP</strong>  </li>
+<li><strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong>  </li>
+</ul>
+<p><img alt="Retarget01" src="../../images/FemaleShooter/Retarget01.jpg" title="Retarget01" /></p>
+<p>For now, we will proceed with retargeting both of these Animation Blueprints to your chosen skeletal mesh.<br />
+Further explanation on this subject will be explained further below.</p>
+</li>
+<li>
+<p>Right click on both files, choose Retarget Anim Blueprints, then choose Duplicate Anim Blueprints and Retarget</p>
+<p><img alt="Retarget02" src="../../images/FemaleShooter/Retarget02.jpg" title="Retarget02" /></p>
+</li>
+<li>
+<p>A dialog window will appear.  </p>
+<p><img alt="Retarget03" src="../../images/FemaleShooter/Retarget03.jpg" title="Retarget03" /></p>
+<p>You will need to choose the skeleton asset of your chosen skeletal mesh here.  <br />
+Try unchecking the <strong>Show Only Compatible Skeletons</strong> option if your skeleton asset is not listed on the option.</p>
+</li>
+<li>
+<p><subnote>[Optional]</subnote> Add a prefix and assign the folder for the New Asset Name
     <blocknote>
     This step is optional, but recommended.<br />
     It might be helpful when you need to locate the newly generated asset using its name.
-    </blocknote></li>
-<li>Press Retarget</li>
+    </blocknote></p>
+</li>
+<li>
+<p>Press the <strong>Retarget</strong> button</p>
+</li>
 </ul>
-<p>This approach will work on most skeletal mesh, but it will generate a new Animation Blueprint for every skeletal mesh it retargets to.<br />
-It might also create a copy of all the animations used in the Animation Blueprint.
-<blocknote>
-Starting from version 1.2.0, the Female Shooter template now store its animations inside a variable.<br />
-Thus, if you perform the retargeting using <strong>GunnerGirl_AnimBP</strong>, the procedure will generate only the Animation Blueprint, it will not retarget the rest of the default animations to your character.<br />
-If you need the default animations to be retargeted to your skeleton, try retarget using <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong> instead of <strong>GunnerGirl_AnimBP</strong>.
-</blockquote></p>
+<p>Previously, we choose both <strong>GunnerGirl_AnimBP</strong> and <strong>GunnerGirl_AnimBP_WithDefaultAnimations</strong> to be retargeted.  </p>
+<p>This is done because starting from version 1.2.0, the Female Shooter template store each animations as a variable inside the Animation Blueprint.<br />
+Due to this, when retargeting is performed only on <strong>GunnerGirl_AnimBP</strong>, only the Animation Blueprint will be retargeted, the default animations will not be included in the result.</p>
+<p>In the example above, both files are chosen to make sure that the default animations are also included when the retargeting is performed.<br />
+Do note however, if you're planning to use your own custom animations with the Female Shooter template, retargeting only the <strong>GunnerGirl_AnimBP</strong> will be enough.  </p>
+<p>Once you're done with the retargeting, we will proceed to the <a href="#connecting-the-animation-blueprint-to-your-character" title="here">next steps</a>.  </p>
+<hr />
 <h2 id="connecting-the-animation-blueprint-to-your-character">Connecting the Animation Blueprint to your Character</h2>
 <p>Once the Animation Blueprint is ready, we can now apply it into the character.<br />
 Steps are as follows,</p>
 <ul>
 <li>Open your character's blueprint</li>
-<li>Choose the character's Mesh component</li>
-<li>Go to Details tab, find Animation Mode, set its value to Use Animation Blueprint</li>
-<li>Also on Details tab, find Anim Class, set its value to the AnimBP that you have prepared using the steps above.</li>
+<li>Go to Components tab, select the Mesh component</li>
+<li>Go to Details tab, find the Mesh tab,</li>
+<li>
+<p>Click on the Skeletal Mesh, make sure the value is set to your chosen skeletal mesh</p>
+<p><img alt="AssignSkeleton3" src="../../images/FemaleShooter/AssignSkeleton3.jpg" title="AssignSkeleton3" /></p>
+</li>
+<li>
+<p>Next, still in the Details tab, find the Animation tab</p>
+</li>
+<li>Set the value of Animation Mode to Use Animation Blueprint.</li>
+<li>Set the value of Anim Class into the Animation Blueprint that you've prepared previously.</li>
 </ul>
 <p>This should complete the default Female Shooter template setup for your character.</p>
 <p>If you're planning to use custom animations for your character, make sure to take a look at the next article about <a href="../06" title="06">Using Custom Animations on the template</a>.</p>
